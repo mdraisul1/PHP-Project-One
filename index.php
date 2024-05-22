@@ -1,4 +1,6 @@
 <?php
 
+require 'function.php';
 
-require ("view/index.view.php");
+// dd($_SERVER);
+
