@@ -1,10 +1,10 @@
-<?php require 'portails/head.php' ?>
-<?php require 'portails/nav.php' ?>
-<?php require 'portails/banar.php' ?>
+<?php require 'partials/head.php' ?>
+<?php require 'partials/nav.php' ?>
+<?php require 'partials/banner.php' ?>
 <main>
     <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
         <p>Hello, welcome to the <b>Contact Us Page!</b></p>
     </div>
 </main>
 
-<?php require 'portails/footer.php' ?>
+<?php require 'partials/footer.php' ?>
