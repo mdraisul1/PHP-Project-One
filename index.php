@@ -1,54 +1,65 @@
 <?php
 
 require 'function.php';
+require 'database.php';
+require 'router.php';
 
-$url = parse_url($_SERVER['REQUEST_URI'])['path'];
 
 
+/*$url = parse_url($_SERVER['REQUEST_URI'])['path'];
 
-$routes = [
-    '/' => 'controllers/index.php',
-    '/contact' => 'controllers/contact.php',
-    '/about' => 'controllers/about.php',
-];
 
-function routeToControllers($url, $routes){
-    if(array_key_exists($url, $routes)){
-        require $routes[$url];
-    }else{
-        abort();
-    }
+switch($url){
+    case '':
+    case '/':
+        $fileUrl = __DIR__ . '/controllers/index.php';
+        break;
+    case '/about':
+        $fileUrl = __DIR__ . '/controllers/about.php';
+        break;
+    case '/contact':
+        $fileUrl = __DIR__ . '/controllers/contact.php';
+        break;
+    default:
+        $fileUrl = __DIR__ . '/controllers/404.php';
+        break;
 }
 
-function abort($code = 404){
-    http_response_code($code);
+require $fileUrl;
+dd($fileUrl);
+*/
 
-    require "view/{$code}.php";
 
-    die();
-}
+// $id = $_GET['id'];
+// $query = ("SELECT * FROM posts where id = ?");
 
-routeToControllers($url, $routes);
-// switch($url){
-//     case '/':
-//         require __DIR__.'/controllers/index.php';
-//         break;
-//     case '/about':
-//         require __DIR__.'/controllers/about.php';
-//         break;
-//     case '/contact';
-//         require __DIR__.'/controllers/contact.php';
-//     default:
-//         $fileUrl = '/controllers/404.php';
-//         break;
+// $posts = $db->query($query, [$id])->fetch();
+
+// dd($posts);
+
+// foreach ($posts as $post) {
+//     echo "<li>" .  $post['title'] . "</li>";
 // }
 
-// $fileUrl = match($url){
-//     '/' => '/controllers/index.php',
-//     '/about' => '/controllers/about.php',
-//     '/contact' => '/controllers/contact.php',
-//     default => '/controllers/404.php'
-// };
 
-// dd($fileUrl);
-// require $fileUrl;
+
+
+// $db_connection = 'mysql';
+// $db_host = 'localhost';
+// $db_name = 'myapp';
+// $db_user = 'root';
+// $db_password = 'password';
+// $chater = 'utf8';
+
+// $dsn = "$db_connection:dbname=$db_name;$db_host=localhost;$chater=utf8";
+
+// $db = new PDO($dsn, $db_user, $db_password);
+// $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+// $statement = $db->prepare('SELECT * FROM posts');
+// $statement->execute();
+// $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+// dd($posts);
+
+
