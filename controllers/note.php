@@ -6,14 +6,20 @@ $heading = "Note";
 
 // $id = $_GET['id'];
 
-$notes = $db->query('SELECT * FROM notes WHERE user_id = :user_id AND id = :id', [
+$notes = $db->query('SELECT * FROM notes WHERE id = :id', [
 
-    'user_id' => 2,
     'id' => $_GET['id']
 
 ])->fetch();
 
-dd($notes);
+if(! $nones){
+    abort();
+}
+
+if($nones['user_id'] == 2){
+
+    abort(403);
+}
 
 require "view/note.view.php";
 
